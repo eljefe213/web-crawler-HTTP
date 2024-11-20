@@ -1,0 +1,19 @@
+{
+  "name": "command-line-application",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eljefe213/command-line-application.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eljefe213/command-line-application/issues"
+  },
+  "homepage": "https://github.com/eljefe213/command-line-application#readme"
+}
