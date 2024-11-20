@@ -1,5 +1,5 @@
-function normalizeUrl(url) {
-  return urlString;
+function normalizeUrl(urlstring) {
+  return urlstring;
 }
 
 module.exports = { normalizeUrl };
