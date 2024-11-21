@@ -12,4 +12,7 @@ function normalizeUrl(urlstring) {
   return hostPath;
 }
 
-module.exports = { normalizeUrl };
+module.exports = {
+  normalizeUrl,
+  getURLsFromHTML,
+};
