@@ -21,3 +21,9 @@ test("normalizeUrl capitals ", () => {
   const expected = "blog.boot.dev/path";
   expect(actual).toEqual(expected);
 });
+test("normalizeUrl strip http ", () => {
+  const input = "http://blog.boot.dev/path";
+  const actual = normalizeUrl(input);
+  const expected = "blog.boot.dev/path";
+  expect(actual).toEqual(expected);
+});
