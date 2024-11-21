@@ -7,10 +7,20 @@ function getURLsFromHTML(htmlBody, baseURL) {
   for (const link of links) {
     if (link.href.slice(0, 1) === "/") {
       // Relative URL
-      urls.push(`${baseURL}${link.href}`);
+      try {
+        const urlObj = new URL(`${baseURL}${link.href}`);
+        urls.push(urlObj.href);
+      } catch (err) {
+        console.log(`error with relative url: ${err.message}`);
+      }
     } else {
       // Absolute URL
-      urls.push(link.href);
+      try {
+        const urlObj = new URL(link.href);
+        urls.push(urlObj.href);
+      } catch (err) {
+        console.log(`error with absolute url: ${err.message}`);
+      }
     }
   }
   return urls;
