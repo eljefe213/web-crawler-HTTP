@@ -1,5 +1,12 @@
+const { JSDOM } = require("jsdom");
+
 function getURLsFromHTML(htmlBody, baseURL) {
   const urls = [];
+  const dom = new JSDOM(htmlBody);
+  const links = dom.window.document.querySelectorAll("a");
+  for (const link of links) {
+    urls.push(link.href);
+  }
   return urls;
 }
 
