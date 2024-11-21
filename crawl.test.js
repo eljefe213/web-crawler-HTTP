@@ -1,4 +1,4 @@
-const { normalizeUrl } = require("./crawl.js");
+const { normalizeUrl, getURLsFromHTML } = require("./crawl.js");
 const { test, expect } = require("@jest/globals");
 
 test("normalizeUrl strip protocol", () => {
@@ -21,9 +21,24 @@ test("normalizeUrl capitals ", () => {
   const expected = "blog.boot.dev/path";
   expect(actual).toEqual(expected);
 });
+
 test("normalizeUrl strip http ", () => {
   const input = "http://blog.boot.dev/path";
   const actual = normalizeUrl(input);
   const expected = "blog.boot.dev/path";
+  expect(actual).toEqual(expected);
+});
+
+test("getURLsFromHTML", () => {
+  const inputHTMLBody = `
+    <html>
+      <body>
+        <a href="https://blog.boot.dev">Boot.dev Blog</a>
+      </body>
+    </html>
+  `;
+  const inputBaseURL = "https://blog.boot.dev";
+  const actual = getURLsFromHTML(inputHTMLBody, inputBaseURL);
+  const expected = ["blog.boot.dev"];
   expect(actual).toEqual(expected);
 });
