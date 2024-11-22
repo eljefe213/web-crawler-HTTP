@@ -8,6 +8,7 @@ async function crawlPage(currentURL) {
 
     if (resp.status > 399) {
       console.log(`error in fetch: ${resp.status} on page: ${currentURL}`);
+      return;
     }
     console.log(await resp.text());
   } catch (err) {
