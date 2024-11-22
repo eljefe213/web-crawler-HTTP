@@ -10,6 +10,14 @@ async function crawlPage(currentURL) {
       console.log(`error in fetch: ${resp.status} on page: ${currentURL}`);
       return;
     }
+
+    const contentType = resp.headers.get("content-type");
+    if (contentType !== "text/html") {
+      console.log(
+        `non html response, content type: ${contentType} on page: ${currentURL}`
+      );
+      return;
+    }
     console.log(await resp.text());
   } catch (err) {
     console.log(`error in fetch: ${err.message} on page: ${currentURL}`);
